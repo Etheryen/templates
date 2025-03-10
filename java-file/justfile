@@ -2,4 +2,6 @@
 	java Main.java
 
 @watch:
-	watchexec -c -e java -r -- just run
+	# watchexec -c -e java -r -- just run
+    clear
+    gow -s -e java -g just run
