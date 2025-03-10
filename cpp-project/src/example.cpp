@@ -1,6 +1,6 @@
 #include "example.hpp"
 #include <iostream>
 
-void exampleFunction() {
-  std::cout << "This is an example function!" << std::endl;
+auto exampleFunction() -> void {
+  std::cout << "This is an example function!\n";
 }

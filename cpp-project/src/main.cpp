@@ -1,8 +1,7 @@
 #include "example.hpp"
 #include <iostream>
 
-int main() {
-  std::cout << "Hello, World!" << std::endl;
+auto main() -> int {
+  std::cout << "Hello, World!\n";
   exampleFunction();
-  return 0;
 }
