@@ -13,4 +13,7 @@ PROJECT_NAME := shell("basename $(pwd)")
     ./build/bin/{{PROJECT_NAME}}
 
 @watch:
-    watchexec -c -e cpp,hpp -r -- just run
+    # watchexec -c -e cpp,hpp -r -- just run
+    just build
+    clear
+    gow -s -e cpp,hpp -g just run
