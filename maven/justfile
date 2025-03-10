@@ -1,0 +1,8 @@
+@build:
+	mvn package
+
+@run: build
+	java -cp target/template-maven-1.0-SNAPSHOT.jar org.example.Main
+
+@watch:
+	watchexec -c -e java -r just run

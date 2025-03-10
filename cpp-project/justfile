@@ -1,0 +1,16 @@
+# PROJECT_NAME := "CppProject"
+PROJECT_NAME := shell("basename $(pwd)")
+
+@clean:
+    rm -rf .cache build .idea cmake-build-debug
+
+@build:
+    mkdir -p build
+    cmake -G Ninja -S . -B build > /dev/null 2>&1
+    cd build && ninja
+
+@run: build
+    ./build/bin/{{PROJECT_NAME}}
+
+@watch:
+    watchexec -c -e cpp,hpp -r just run

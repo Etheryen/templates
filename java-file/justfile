@@ -1,0 +1,5 @@
+@run:
+	java Main.java
+
+@watch:
+	watchexec -c -e java -r just run

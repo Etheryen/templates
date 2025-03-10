@@ -1,0 +1,12 @@
+build/
+.cache/
+*.o
+*.a
+*.so
+*.exe
+*.dll
+*.vcxproj
+*.sln
+*.vscode/
+.idea/
+cmake-build-debug/
