@@ -14,6 +14,18 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 set(CMAKE_CXX_SCAN_FOR_MODULES OFF)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
+# --- Libraries
+include(FetchContent)
+
+FetchContent_Declare(
+	fmt
+	GIT_REPOSITORY https://github.com/fmtlib/fmt
+	GIT_TAG 11.1.4
+)
+
+FetchContent_MakeAvailable(fmt)
+# ---
+
 include_directories(include)
 
 # set(SOURCES 
@@ -23,3 +35,7 @@ include_directories(include)
 file(GLOB_RECURSE SOURCES "src/*.cpp")
 
 add_executable(${PROJECT_NAME} ${SOURCES})
+
+# --- Libraries
+target_link_libraries(${PROJECT_NAME} fmt)
+# ---
