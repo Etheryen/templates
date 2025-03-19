@@ -1,7 +1,7 @@
 #include "example.hpp"
-#include <iostream>
+#include <fmt/base.h>
 
 auto main() -> int {
-  std::cout << "Hello, World!\n";
+  fmt::println("Hello World!");
   exampleFunction();
 }
