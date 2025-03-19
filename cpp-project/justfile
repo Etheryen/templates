@@ -4,16 +4,19 @@ PROJECT_NAME := shell("basename $(pwd)")
 @clean:
     rm -rf .cache build .idea cmake-build-debug
 
-@build:
+@setup:
     mkdir -p build
     cmake -G Ninja -S . -B build > /dev/null 2>&1
     cd build && ninja
+
+@build:
+    cmake --build build
 
 @run: build
     ./build/bin/{{PROJECT_NAME}}
 
 @watch:
     # watchexec -c -e cpp,hpp -r -- just run
-    just build
+    just setup 
     clear
     gow -s -e cpp,hpp -g just run
