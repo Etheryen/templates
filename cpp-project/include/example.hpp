@@ -1,3 +1,3 @@
 #pragma once
 
-auto exampleFunction() -> void;
+int exampleFunction();
