@@ -1,3 +1,3 @@
 #pragma once
 
-int exampleFunction();
+void exampleFunction();
