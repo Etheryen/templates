@@ -35,6 +35,16 @@ FetchContent_Declare(
 	GIT_TAG 11.1.4
 )
 FetchContent_MakeAvailable(fmt)
+
+FetchContent_Declare(
+        SFML
+        GIT_REPOSITORY https://github.com/SFML/SFML.git
+        GIT_TAG 3.0.0
+        GIT_SHALLOW ON
+        EXCLUDE_FROM_ALL
+        SYSTEM
+)
+FetchContent_MakeAvailable(SFML)
 # -----------------------
 
 include_directories(include)
@@ -48,5 +58,5 @@ file(GLOB_RECURSE SOURCES "src/*.cpp")
 add_executable(${PROJECT_NAME} ${SOURCES})
 
 # ------ Libraries ------
-target_link_libraries(${PROJECT_NAME} PRIVATE fmt)
+target_link_libraries(${PROJECT_NAME} PRIVATE fmt SFML::Graphics)
 # -----------------------

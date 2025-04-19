@@ -6,6 +6,5 @@
 
 @watch:
     # watchexec -c -e java -r -- just run
-    just build
     clear
     gow -s -e java -g just run
