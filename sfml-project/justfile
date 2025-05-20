@@ -1,6 +1,11 @@
 # PROJECT_NAME := "CppProject"
 PROJECT_NAME := shell("basename $(pwd)")
 
+set positional-arguments
+
+@default:
+    just --list
+
 @clean:
     rm -rf .cache build .idea cmake-build-debug
 
@@ -12,14 +17,14 @@ PROJECT_NAME := shell("basename $(pwd)")
 @build:
     cmake --build build
 
-@run: build
-    ./build/bin/{{PROJECT_NAME}}
+@run *args: build
+    ./build/bin/{{PROJECT_NAME}} "$@"
 
-@watch:
+@watch *args:
     # watchexec -c -e cpp,hpp -r -- just run
     just setup 
     clear
-    gow -s -e cpp,hpp -g just run
+    gow -s -e cpp,hpp -g just run "$@"
 
 @release:
     mkdir -p build
