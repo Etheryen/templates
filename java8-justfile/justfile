@@ -1,0 +1,5 @@
+[positional-arguments]
+run zadanie: 
+	mkdir -p out
+	/usr/lib/jvm/temurin-8-jdk/bin/javac -d out src/$1/*.java
+	/usr/lib/jvm/temurin-8-jdk/bin/java -cp out $1.Main	

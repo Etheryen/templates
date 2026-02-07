@@ -8,21 +8,22 @@
 #include "example.hpp"
 
 int main() {
-  using namespace sf;
-
   fmt::println("Hello World!");
   exampleFunction();
 
-  auto window =
-      RenderWindow(VideoMode({800, 600}), "Test", Style::Default,
-                   State::Windowed, ContextSettings{.antiAliasingLevel = 8});
+  auto window = sf::RenderWindow(sf::VideoMode({800, 600}), "Test",
+                                 sf::Style::Default, sf::State::Windowed,
+                                 sf::ContextSettings{.antiAliasingLevel = 8});
+
+  window.setFramerateLimit(60);
 
   while (window.isOpen()) {
-    while (auto const &event = window.pollEvent()) {
-      if (event->is<Event::Closed>())
+    while (const auto &event = window.pollEvent()) {
+      if (event->is<sf::Event::Closed>())
         window.close();
     }
 
+    window.clear();
     window.display();
   }
 }

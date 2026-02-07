@@ -14,11 +14,11 @@ add_compile_options(-fdiagnostics-color=always)
 
 # ------ Debug ------
 # Address, undefined, leak
-set(CMAKE_CXX_FLAGS_DEBUG "-g -Wall -Wextra -Wpedantic -fsanitize=address,undefined,leak -fno-omit-frame-pointer")
+set(CMAKE_CXX_FLAGS_DEBUG "-g -Wall -Wextra -pedantic-errors -fsanitize=address,undefined,leak -fno-omit-frame-pointer")
 set(CMAKE_EXE_LINKER_FLAGS_DEBUG "-fsanitize=address,undefined,leak")
 
 # Thread
-# set(CMAKE_CXX_FLAGS_DEBUG "-g -Wall -Wextra -Wpedantic -fsanitize=thread -fno-omit-frame-pointer")
+# set(CMAKE_CXX_FLAGS_DEBUG "-g -Wall -Wextra -pedantic-errors -fsanitize=thread -fno-omit-frame-pointer")
 # set(CMAKE_EXE_LINKER_FLAGS_DEBUG "-fsanitize=thread")
 # -------------------
 
