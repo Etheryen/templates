@@ -2,9 +2,10 @@
 
 CC = clang
 
+ASM_FLAGS = -S
 GENERIC_FLAGS = -std=c99 -Wall -Wextra -Wpedantic
 DEBUG_FLAGS = -O0 -g -fsanitize=address,undefined,leak
-RELEASE_FLAGS = -O3
+RELEASE_FLAGS = -O3 -march=native
 
 CFLAGS = $(GENERIC_FLAGS) $(RELEASE_FLAGS)
 
